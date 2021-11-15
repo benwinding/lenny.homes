@@ -1,0 +1,31 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  font-size: 42pt;
+  margin: 0;
+}
+
+h4 {
+  font-size: 15pt;
+  margin: 0;
+}
+
+@font-face {
+  font-family: hatton;
+  src: url('/fonts/Hatton-Regular.woff2');
+}
+@font-face {
+  font-family: dovde;
+  src: url('/fonts/Dovde-Black.woff2');
+}
+@font-face {
+  font-family: horizon;
+  src: url('/fonts/Horizon.woff2');
+}
+@font-face {
+  font-family: aleo-light;
+  src: url('/fonts/Aleo-Light.woff2');
+}
