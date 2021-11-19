@@ -15,15 +15,15 @@ const Page: NextPage = () => {
 
   const donateLinks = [
     {
-      href: '',
+      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
       imageUrl: '/donate_buttons/metamask.png'
     },
     {
-      href: '',
+      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
       imageUrl: '/donate_buttons/patreon.png'
     },
     {
-      href: '',
+      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
       imageUrl: '/donate_buttons/paypal.png'
     },
   ]
