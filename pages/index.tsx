@@ -180,10 +180,9 @@ function Reviews() {
 
 function ReviewItem({ review }: { review: Review }) {
   return <div className="text-black rounded-xl bg-gray-300 p-3">
-    <span className="flex items-center gap-2">
-      <p className="font-bold">{review.user}</p>
-      <span className="flex-grow">({review.location})</span>
-      <h5 className="text-xs text-gray-700">{review.created_at}</h5>
+    <span className="flex items-start gap-2">
+      <span className="flex-shrink-0 flex gap-2"><span className="font-bold">{review.user}</span> ({review.location})</span>
+      <h5 className="text-xs text-gray-700 mt-1 text-right w-full">{review.created_at}</h5>
     </span>
     <p>{review.comment}</p>
   </div>
