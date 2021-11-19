@@ -55,7 +55,7 @@ const Page: NextPage = () => {
   const Donate = <div>
     <div className="text-center">
       <h1 className="font-bold">Donate</h1>
-      <p className="text-xl">Do you like to <i>not</i> work? Met too! I{'\''}m looking to travel the world and not work, if you want to help fund my journey, please donate!</p>
+      <p className="text-xl">Do you like to <i>not</i> work? Me too! I{'\''}m looking to travel the world and <i>not</i> work, if you want to help fund my journey, please donate!</p>
     </div>
 
     <h3 className="text-center font-bold">Centralised</h3>
