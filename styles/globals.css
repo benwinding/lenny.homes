@@ -14,18 +14,9 @@ h4 {
 }
 
 @font-face {
-  font-family: hatton;
-  src: url('/fonts/Hatton-Regular.woff2');
+  font-family: dancing;
+  src: url('/DancingScript-VariableFont_wght.ttf');
 }
-@font-face {
-  font-family: dovde;
-  src: url('/fonts/Dovde-Black.woff2');
-}
-@font-face {
-  font-family: horizon;
-  src: url('/fonts/Horizon.woff2');
-}
-@font-face {
-  font-family: aleo-light;
-  src: url('/fonts/Aleo-Light.woff2');
+.font-cursive {
+  font-family: dancing;
 }

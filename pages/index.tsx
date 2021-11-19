@@ -6,12 +6,12 @@ import clipboard from 'clipboard';
 import { LayoutMain } from '../components/LayoutMain';
 
 const Page: NextPage = () => {
-  const primary = '#333'
-  const secondary = '#000'
+  const primary = '#2C7FDD'
+  const secondary = '#AFD2FD'
   const imageSrc = "/lenny.jpg";
-  const Title = <div className="text-center mb-6">
-    <h1>Lenny</h1>
-    <h4 className="text-gray-300 italic -mt-3">{'"Homes"'}</h4>
+  const Title = <div className="text-center mb-6 font-cursive">
+    <h1 className="text-8xl font-bold">Lenny</h1>
+    <h4 className="text-3xl italic mt-3">{'"Homes"'}</h4>
   </div>;
 
   const PAYPAL_LINK = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Lamping&currency_code=AUD&source=url'
@@ -92,7 +92,7 @@ const Page: NextPage = () => {
       <meta property="og:description" content="Homes" />
       <meta property="og:image" content={imageSrc} />
     </Head>
-    <div className="flex flex-col gap-2 items-center text-white">
+    <div className="flex flex-col gap-2 items-center text-black">
       {Title}
       {Image}
       {Donate}
@@ -120,7 +120,7 @@ function CryptoCard(props: { imageUrl: string, name: string, address: string, in
     <div className="w-full">
       <div className="font-mono select-none">{props.name}</div>     
       <div className="flex gap-2">
-        <input type="text" className="font-mono text-xs rounded md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
+        <input type="text" className="font-mono text-white text-xs rounded md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
         <button ref={buttonRef} className="bg-gray-400 rounded p-2" data-clipboard-target={"#"+id}>Copy</button>
       </div> 
     </div>
