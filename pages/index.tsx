@@ -135,7 +135,8 @@ function DonateCount() {
     const countWithCommas = (countStart + countAddedSince).toLocaleString();
     setCount(countWithCommas);
   }, []);
-  return <h1 className="pr-3 text-green-200 font-bold font-mono text-7xl md:text-8xl" >${count}</h1>
+
+  return <h1 className="pr-3 text-green-200 font-bold font-mono text-7xl md:text-8xl" >{count && ('$'+count)}</h1>
 }
 
 function Date2Dollars(endDate: Date, perHour: number): number {
