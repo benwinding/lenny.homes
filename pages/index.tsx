@@ -14,17 +14,18 @@ const Page: NextPage = () => {
     <h4 className="text-gray-300 italic -mt-3">{'"Homes"'}</h4>
   </div>;
 
+  const PAYPAL_LINK = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Lamping&currency_code=AUD&source=url'
   const donateLinks = [
     {
-      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
+      href: PAYPAL_LINK,
       imageUrl: '/donate_buttons/metamask.png'
     },
     {
-      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
+      href: PAYPAL_LINK,
       imageUrl: '/donate_buttons/patreon.png'
     },
     {
-      href: 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lennycees%40gmail.com&item_name=Travel&currency_code=AUD&source=url',
+      href: PAYPAL_LINK,
       imageUrl: '/donate_buttons/paypal.png'
     },
   ]
@@ -81,8 +82,8 @@ const Page: NextPage = () => {
     </div>
   </div>
 
-  const Image = <div className="flex justify-center"><div className="w-full max-w-2xl border-2 border-white p-2">
-    <img src={imageSrc} width="100%" />
+  const Image = <div className="flex justify-center"><div className="w-full max-w-2xl">
+    <img className="rounded-xl" src={imageSrc} width="100%" />
   </div></div>;
 
   return <LayoutMain color={{ primary, secondary }}>
@@ -112,7 +113,7 @@ function CryptoCard(props: { imageUrl: string, name: string, address: string }) 
     }
   }, [buttonRef?.current]);
 
-  const id = 'id_' + props.address
+  const id = 'id_' + props.name
   
   return <div className="p-3 bg-gray-700 flex gap-2 m-0 mt-2 rounded-xl">
     <div><img src={props.imageUrl} width={40} /></div>
@@ -177,7 +178,7 @@ function Reviews() {
 }
 
 function ReviewItem({ review }: { review: Review }) {
-  return <div className="text-black rounded-xl bg-gray-200 p-3">
+  return <div className="text-black rounded-xl bg-gray-300 p-3">
     <span className="flex items-center gap-2">
       <p className="font-bold">{review.user}</p>
       <span className="flex-grow">({review.location})</span>
