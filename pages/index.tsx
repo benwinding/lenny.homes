@@ -9,7 +9,7 @@ const Page: NextPage = () => {
   const primary = '#333'
   const secondary = '#000'
   const imageSrc = "/lenny.jpg";
-  const Title = <div className="text-center">
+  const Title = <div className="text-center mb-6">
     <h1>Lenny</h1>
     <h4 className="text-gray-300 italic -mt-3">{'"Homes"'}</h4>
   </div>;
@@ -76,7 +76,7 @@ const Page: NextPage = () => {
     </div>
 
     <div className="flex flex-col items-center gap-3">
-      <p className="text-xl">Remember every one of your dollars will help me get the best content to you! 😁</p>
+      <p className="text-xl pb-8">Remember every one of your dollars will help me get the best content to you! 😁</p>
       <DonateCount />
       <h4 className="mb-5 font-bold">Raised so far!</h4>
     </div>
