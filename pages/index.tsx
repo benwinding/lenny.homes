@@ -69,8 +69,8 @@ const Page: NextPage = () => {
     <h3 className="text-center font-bold">Decentralised</h3>
     <div className="flex justify-center">
       <div className="w-full max-w-2xl my-3 flex-col gap-y-2 items-center">
-        {cryptoLinks.map(({ name, imageUrl, address }) =>
-          <CryptoCard name={name} imageUrl={imageUrl} address={address} key={imageUrl} />
+        {cryptoLinks.map(({ name, imageUrl, address }, i) =>
+          <CryptoCard name={name} imageUrl={imageUrl} address={address} key={imageUrl} index={i} />
         )}
       </div>
     </div>
@@ -103,7 +103,7 @@ const Page: NextPage = () => {
 
 export default Page
 
-function CryptoCard(props: { imageUrl: string, name: string, address: string }) {
+function CryptoCard(props: { imageUrl: string, name: string, address: string, index: number }) {
   const buttonRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -113,7 +113,7 @@ function CryptoCard(props: { imageUrl: string, name: string, address: string }) 
     }
   }, [buttonRef?.current]);
 
-  const id = 'id_' + props.name
+  const id = 'id_crypto_' + props.index
   
   return <div className="p-3 bg-gray-700 flex gap-2 m-0 mt-2 rounded-xl">
     <div><img src={props.imageUrl} width={40} /></div>
@@ -169,6 +169,7 @@ function Reviews() {
     MakeReviewObj('Daniel Roberts', 'Adelaide, SA', 'Thanks for everything you do Guru, enjoy the ride bruzzy 🤙', '2021-10-27'),
     MakeReviewObj('Annonymous', '-, SA', 'WTF is this? Are you really asking people to give you money to go on holiday!!? Disgusting', '2021-10-28'),
     MakeReviewObj('Lenny Fan', 'Robe, SA', 'Don\'t let the haters get you down Lou, keep doing what you do bro! 👌👌👌', '2021-10-29'),
+    MakeReviewObj('Darl Bigging', 'Henly, SA', 'At least he\'s honest about where the money is going, good on him.', '2021-11-03'),
   ];
 
   return <div className="w-full flex flex-col gap-2">
