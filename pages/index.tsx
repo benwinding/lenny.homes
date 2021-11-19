@@ -120,7 +120,7 @@ function CryptoCard(props: { imageUrl: string, name: string, address: string, in
     <div className="w-full">
       <div className="font-mono select-none">{props.name}</div>     
       <div className="flex gap-2">
-        <input type="text" className="font-mono text-xs md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
+        <input type="text" className="font-mono text-xs rounded md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
         <button ref={buttonRef} className="bg-gray-400 rounded p-2" data-clipboard-target={"#"+id}>Copy</button>
       </div> 
     </div>
