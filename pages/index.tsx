@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head';
 import React from 'react';
 import moment from 'moment';
+import clipboard from 'clipboard';
 import { LayoutMain } from '../components/LayoutMain';
 
 const Page: NextPage = () => {
@@ -28,24 +29,61 @@ const Page: NextPage = () => {
     },
   ]
 
+  const cryptoLinks = [
+    {
+      name: 'Bit Coin',
+      imageUrl: '/crypto/bitcoin.png',
+      address: '3ApvrCVctiP5UikNRJGdgFwi1GxLWtfEKm',
+    },
+    {
+      name: 'Ethereum',
+      imageUrl: '/crypto/ethereum.png',
+      address: '0x4273FE90482ef91c5a8246642Dce4469574a908e',
+    },
+    {
+      name: 'Hex',
+      imageUrl: '/crypto/hex.png',
+      address: '0x4273FE90482ef91c5a8246642Dce4469574a908e',
+    },
+    {
+      name: 'Pulse Chain',
+      imageUrl: '/crypto/pulse-chain.png',
+      address: '0x4273FE90482ef91c5a8246642Dce4469574a908e',
+    },
+  ]
+
   const Donate = <div>
     <div className="text-center">
       <h1 className="font-bold">Donate</h1>
       <p className="text-xl">Do you like to <i>not</i> work? Met too! I{'\''}m looking to travel the world and not work, if you want to help fund my journey, please donate!</p>
     </div>
 
-    <div className="my-3 flex gap-2 justify-center items-center">
+    <h3 className="text-center font-bold">Centralised</h3>
+    <div className="my-3 flex gap-2 items-center justify-center">
       {donateLinks.map(({ href, imageUrl }) => <a key={href + imageUrl} href={href}>
         <img src={imageUrl} width={130} />
       </a>)}
     </div>
 
-    <div className="text-center">
+    <h3 className="text-center font-bold">Decentralised</h3>
+    <div className="flex justify-center">
+      <div className="w-full max-w-2xl my-3 flex-col gap-y-2 items-center">
+        {cryptoLinks.map(({ name, imageUrl, address }) =>
+          <CryptoCard name={name} imageUrl={imageUrl} address={address} key={imageUrl} />
+        )}
+      </div>
+    </div>
+
+    <div className="flex flex-col items-center gap-3">
       <p className="text-xl">Remember every one of your dollars will help me get the best content to you! 😁</p>
       <DonateCount />
-      <p className="mb-5 -mt-3 text-center font-bold">Raised so far!</p>
+      <h4 className="mb-5 font-bold">Raised so far!</h4>
     </div>
   </div>
+
+  const Image = <div className="flex justify-center"><div className="w-full max-w-2xl border-2 border-white p-2">
+    <img src={imageSrc} width="100%" />
+  </div></div>;
 
   return <LayoutMain color={{ primary, secondary }}>
     <Head>
@@ -53,16 +91,40 @@ const Page: NextPage = () => {
       <meta property="og:description" content="Homes" />
       <meta property="og:image" content={imageSrc} />
     </Head>
-    <div className="flex flex-col items-center text-white">
+    <div className="flex flex-col gap-2 items-center text-white">
       {Title}
+      {Image}
       {Donate}
-      <img src={imageSrc} width="100%" />
       <Reviews />
-    </div>    
+    </div>
   </LayoutMain>
 }
 
 export default Page
+
+function CryptoCard(props: { imageUrl: string, name: string, address: string }) {
+  const buttonRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (buttonRef.current) {
+      const clip = new clipboard(buttonRef.current);
+      return () => {clip.destroy()}
+    }
+  }, [buttonRef?.current]);
+
+  const id = 'id_' + props.address
+  
+  return <div className="p-3 bg-gray-700 flex gap-2 m-0 mt-2 rounded-xl">
+    <div><img src={props.imageUrl} width={40} /></div>
+    <div className="w-full">
+      <div className="font-mono select-none">{props.name}</div>     
+      <div className="flex gap-2">
+        <input type="text" className="font-mono text-xs md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
+        <button ref={buttonRef} className="bg-gray-400 rounded p-2" data-clipboard-target={"#"+id}>Copy</button>
+      </div> 
+    </div>
+  </div>
+}
 
 function DonateCount() {
   const [count, setCount] = React.useState<string>();
@@ -73,7 +135,7 @@ function DonateCount() {
     const countWithCommas = (countStart + countAddedSince).toLocaleString();
     setCount(countWithCommas);
   }, []);
-  return <h1 className="pr-3">${count}</h1>
+  return <h1 className="pr-3 text-green-200 font-bold font-mono text-7xl md:text-8xl" >${count}</h1>
 }
 
 function Date2Dollars(endDate: Date, perHour: number): number {
@@ -108,12 +170,12 @@ function Reviews() {
   ];
 
   return <div className="w-full flex flex-col gap-2">
-    <h1>Reviews</h1>
+    <h1 className="text-center">Reviews</h1>
     {reviews.map((review) => <ReviewItem key={review.user + review.location} review={review} />)}
   </div>
 }
 
-function ReviewItem({review}: {review: Review}) {
+function ReviewItem({ review }: { review: Review }) {
   return <div className="text-black rounded-xl bg-gray-200 p-3">
     <span className="flex items-center gap-2">
       <p className="font-bold">{review.user}</p>
