@@ -97,6 +97,7 @@ const Page: NextPage = () => {
       {Image}
       {Donate}
       <Reviews />
+      <Contact />
     </div>
   </LayoutMain>
 }
@@ -123,6 +124,16 @@ function CryptoCard(props: { imageUrl: string, name: string, address: string, in
         <input type="text" className="font-mono text-white text-xs rounded md:text-xl px-2 break-all bg-black flex-grow w-full" contentEditable={false} readOnly id={id} value={props.address} onChange={() => {}}/>
         <button ref={buttonRef} className="bg-gray-400 rounded p-2" data-clipboard-target={"#"+id}>Copy</button>
       </div> 
+    </div>
+  </div>
+}
+
+function Contact() {
+  return <div className="w-full flex flex-col gap-2 items-center my-8">
+    <h1>Contact</h1>
+    <p>You can contact me anytime via:</p>
+    <div>
+      <a href="mailto:lenny@lenny.homes" className="text-blue-300 underline">lenny@lenny.homes</a>
     </div>
   </div>
 }
