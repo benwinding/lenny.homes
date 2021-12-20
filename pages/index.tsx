@@ -181,6 +181,7 @@ function Reviews() {
     MakeReviewObj('Annonymous', '-, SA', 'WTF is this? Are you really asking people to give you money to go on holiday!!? Disgusting', '2021-10-28'),
     MakeReviewObj('Lenny Fan', 'Robe, SA', 'Don\'t let the haters get you down Lou, keep doing what you do bro! 👌👌👌', '2021-10-29'),
     MakeReviewObj('Darl Bigging', 'Henly, SA', 'At least he\'s honest about where the money is going, good on him.', '2021-11-03'),
+    MakeReviewObj('Benalony', 'Semaphore, SA', 'Thanks to Lenny\'s advice I\'m a multi-millionare, I\'m forever in your debt 🚀🙏', '2021-12-19'),
   ];
 
   return <div className="w-full flex flex-col gap-2">
